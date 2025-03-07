@@ -17,6 +17,34 @@ public class TetrisGrid {
 	 * Does row-clearing on the grid (see handout).
 	 */
 	public void clearRows() {
+		int rows= grid.length;
+		int cols=grid[0].length;
+		int count=0;
+		Boolean newgrid[][]=new Boolean[rows][cols]
+		for(int j=0;j<cols;j++)
+		{
+			Boolean ba =true;
+			for(int i=0;i<rows;i++)
+			{
+				if(grid[i][j]==false)
+				{
+					ba=false;
+					break;
+				}
+
+			}
+			if(ba=false)
+			{
+				for(int i=0;i<rows;i++)
+				{
+					newgrid[i][count]=newgrid[i][j];
+
+
+				}
+				count++;
+			}
+
+		}
 	}
 	
 	/**
