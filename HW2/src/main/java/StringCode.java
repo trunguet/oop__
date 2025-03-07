@@ -12,8 +12,19 @@ public class StringCode {
 	 * @return max run length
 	 */
 	public static int maxRun(String str) {
-		return 0; // YOUR CODE HERE
-	}
+		int maxLen = 1;
+			int len = 1;
+			for (int i = 1; i < str.length(); i++) {
+				if (str.charAt(i) == str.charAt(i - 1)) {
+					len++;
+				} else {
+					maxLen = Math.max(maxLen, len);
+					len = 1;
+				}
+			}
+			return Math.max(maxLen, len);
+		}
+			 // YOUR CODE HERE
 
 	
 	/**
@@ -52,6 +63,21 @@ public class StringCode {
 	 * Compute this in linear time using a HashSet. Len will be 1 or more.
 	 */
 	public static boolean stringIntersect(String a, String b, int len) {
+		if (len <= 0 ||len>Math.min(a.length(), b.length())) {
+				return false;
+			}
+			Set<String>sub= new HashSet<>();
+			for (int i = 0; i <= a.length() - len; i++) {
+				String subS = a.substring(i, i + len);
+				sub.add(subS);
+			}
+			for (int i = 0; i <= b.length() - len; i++) {
+				String subString = b.substring(i, i + len);
+				if (sub.contains(subString)) {
+					return true;
+				}
+			}
+			return false;
 		return false; // YOUR CODE HERE
 	}
 }
