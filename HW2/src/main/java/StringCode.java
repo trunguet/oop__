@@ -24,6 +24,24 @@ public class StringCode {
 	 * @return blown up string
 	 */
 	public static String blowup(String str) {
+		StringBuilder ans = new StringBuilder();
+			for(int i = 0; i<ans.length();i++){
+		char s = ans.charAt(i);
+		if (Character.isDigit(s)) {
+			if (i < str.length() - 1) {
+				char next = str.charAt(i + 1);
+				int soCanChen = Character.getNumericValue(s);
+				for (int j = 0; j < soCanChen; j++) {
+					ans.append(next);
+				}
+				i++;
+			}
+		} else {
+			ans.append(s);
+		}
+	}
+			return ans.toString();
+}
 		return null; // YOUR CODE HERE
 	}
 	
